@@ -187,15 +187,16 @@ xyplot(quant ~ int_exposure | factor(snake_id), type=c("p","r"), pch = 19,
 
 ###quant distrubtion without outliers - FIGURE 3
 plot1 <- ggplot(data3, aes(x=factor(exposure_time, level = c("100 seconds", "15 minutes",
-         "1 hour(s)", "2 hour(s)")), y=quant)) + geom_violin(fill = "darkgray") + xlab("Time in enclosure")+ ylab("EIS mtDNA copies/rxn") +  theme_classic(
-         ) + theme(panel.border = element_rect(colour = "black", fill=NA, linewidth=0.5), axis.line = element_blank(),axis.text = element_text(colour = "black")
-         ) + geom_jitter(size = 0.9, position = position_jitter(seed = 1, width = 0.2))
+         "1 hour(s)", "2 hour(s)")), y=quant)) + geom_violin(fill = "darkgray") + xlab("Time in enclosure")+ ylab("EIS mtDNA copies/rxn") +  
+          theme_classic() + theme(panel.border = element_rect(colour = "black", fill=NA, linewidth=0.5), axis.line = element_blank(),
+          axis.text = element_text(colour = "black")) + geom_jitter(size = 0.9, position = position_jitter(seed = 1, width = 0.2))
                                                                                                                                                                                                                             
 plot2 <- ggplot(data3, aes(x=factor(sample2, level = c("1 HR", "4 HR", "24 HR", 
           "48 HR", "72 HR", "7 DAY", "10 DAY")), y=quant)) + geom_violin(fill = "darkgray") + xlab("Soil collection"
           )+ theme_classic() + theme( axis.text.y=element_blank(), axis.ticks.y=element_blank(), 
           axis.title.y=element_blank(), axis.text = element_text(colour = "black"), axis.line = element_blank(),
-          panel.border = element_rect(colour = "black", fill=NA, linewidth=0.5)) + geom_jitter(size = 0.9, position = position_jitter(seed = 1, width = 0.2))
+          panel.border = element_rect(colour = "black", fill=NA, linewidth=0.5)) + geom_jitter(size = 0.9, position = position_jitter(
+          seed = 1, width = 0.2))
 plot1 + plot2
 
 
@@ -223,7 +224,8 @@ scale_data[,c(9:18)] <- scale(subset(scale_data[,c(9:18)]))
 
 ###modeling
 ###base model first
-glmer_1 <- glmer(amp ~ int_exposure + int_sample + int_exposure:int_sample + (1 | snake_id), family = binomial(link = "logit"), data = scale_data)
+glmer_1 <- glmer(amp ~ int_exposure + int_sample + int_exposure:int_sample + (1 | snake_id), family = binomial(link = "logit"),
+                 data = scale_data)
 glmer_2 <- glmer(amp ~ int_exposure + int_sample + (1 | snake_id), family = binomial(link = "logit"), data = data2)
 glmer_3 <- glmer(amp ~ int_exposure + (1| snake_id) , family = binomial(link = "logit"), data = scale_data)
 glmer_4 <- glmer(amp ~  int_sample + (1|snake_id), family = binomial(link = "logit"), data = scale_data)
@@ -232,28 +234,40 @@ glmer_4 <- glmer(amp ~  int_sample + (1|snake_id), family = binomial(link = "log
 
 
 ## light and temp
-glmer_1 <- glmer(amp ~ int_exposure + int_sample + int_exposure*int_sample + average_light + average_temp + (1 | snake_id), family = binomial(link = "logit"), data = scale_data)
-glmer_2 <- glmer(amp ~ int_exposure + int_sample + average_temp + average_light + (1|snake_id), family = binomial(link = "logit"), data = scale_data)
-glmer_3 <- glmer(amp ~ int_exposure + int_sample + int_exposure*int_sample + average_temp + (1|snake_id), family = binomial(link = "logit"), data = scale_data)
-glmer_4 <- glmer(amp ~ int_exposure + int_sample + int_exposure*int_sample + average_light + (1|snake_id), family = binomial(link = "logit"), data = scale_data)
+glmer_1 <- glmer(amp ~ int_exposure + int_sample + int_exposure*int_sample + average_light + average_temp + (1 | snake_id),
+                 family = binomial(link = "logit"), data = scale_data)
+glmer_2 <- glmer(amp ~ int_exposure + int_sample + average_temp + average_light + (1|snake_id), family = binomial(link = "logit"), 
+                 data = scale_data)
+glmer_3 <- glmer(amp ~ int_exposure + int_sample + int_exposure*int_sample + average_temp + (1|snake_id), family = binomial(link = "logit"),
+                 data = scale_data)
+glmer_4 <- glmer(amp ~ int_exposure + int_sample + int_exposure*int_sample + average_light + (1|snake_id), family = binomial(link = "logit"),
+                 data = scale_data)
 ##top model
-glmer_5 <- glmer(amp ~ int_exposure + int_sample  + average_temp + average_light + (1|snake_id), family = binomial(link = "logit"), data = scale_data)
-glmer_6 <- glmer(amp ~ int_exposure + int_sample + int_exposure*int_sample + (1|snake_id) , family = binomial(link = "logit"), data = scale_data)
+glmer_5 <- glmer(amp ~ int_exposure + int_sample  + average_temp + average_light + (1|snake_id), family = binomial(link = "logit"),
+                 data = scale_data)
+glmer_6 <- glmer(amp ~ int_exposure + int_sample + int_exposure*int_sample + (1|snake_id) , family = binomial(link = "logit"),
+                 data = scale_data)
 glmer_7 <- glmer(amp ~ int_exposure + int_sample +  average_temp + (1|snake_id), family = binomial(link = "logit"), data = scale_data)
 glmer_8 <- glmer(amp ~ int_exposure + int_sample + average_light + (1|snake_id), family = binomial(link = "logit"), data = scale_data)
 glmer_9 <- glmer(amp ~ int_exposure + int_sample + (1|snake_id), family = binomial(link = "logit"), data = scale_data)
 
 ### rain and light
-glmer_1 <- glmer(amp ~ int_exposure + int_sample + int_exposure*int_sample + average_light + average_rain + (1 | snake_id), family = binomial(link = "logit"), data = scale_data)
-glm_1 <- glm(amp ~ int_exposure + int_sample + int_exposure*int_sample + average_light + average_rain, family = binomial(link = "logit"), data = scale_data)
-glmer_2 <- glmer(amp ~ int_exposure + int_sample + average_light + average_rain + (1 | snake_id), family = binomial(link = "logit"), data = scale_data)
-glmer_3 <- glmer(amp ~ int_exposure + int_sample + int_exposure*int_sample + average_rain + (1 | snake_id), family = binomial(link = "logit"), data = scale_data)
-glmer_4 <- glmer(amp ~ int_exposure + int_sample + average_light + int_exposure*int_sample + (1 | snake_id), family = binomial(link = "logit"), data = scale_data)
+glmer_1 <- glmer(amp ~ int_exposure + int_sample + int_exposure*int_sample + average_light + average_rain + (1 | snake_id),
+                 family = binomial(link = "logit"), data = scale_data)
+glm_1 <- glm(amp ~ int_exposure + int_sample + int_exposure*int_sample + average_light + average_rain, family = binomial(link = "logit"), 
+             data = scale_data)
+glmer_2 <- glmer(amp ~ int_exposure + int_sample + average_light + average_rain + (1 | snake_id), family = binomial(link = "logit"), 
+                 data = scale_data)
+glmer_3 <- glmer(amp ~ int_exposure + int_sample + int_exposure*int_sample + average_rain + (1 | snake_id), family = binomial(link = "logit"), 
+                 data = scale_data)
+glmer_4 <- glmer(amp ~ int_exposure + int_sample + average_light + int_exposure*int_sample + (1 | snake_id), family = binomial(link = "logit"),
+                 data = scale_data)
 ##top
 glmer_5 <- glmer(amp ~ int_exposure + int_sample + average_rain + (1 | snake_id), family = binomial(link = "logit"), data = scale_data)
 ##top
 glmer_6 <- glmer(amp ~ int_exposure + int_sample + average_light + (1 | snake_id), family = binomial(link = "logit"), data = scale_data)
-glmer_7 <- glmer(amp ~ int_exposure + int_sample + int_exposure*int_sample + (1 | snake_id), family = binomial(link = "logit"), data = scale_data)
+glmer_7 <- glmer(amp ~ int_exposure + int_sample + int_exposure*int_sample + (1 | snake_id), family = binomial(link = "logit"),
+                 data = scale_data)
 glmer_8 <- glmer(amp ~ int_exposure + int_sample + (1 | snake_id), family = binomial(link = "logit"), data = scale_data)
 
 ##just covariates
@@ -393,7 +407,7 @@ plot(y=c(min(0),max(weather$mm_rain)),x=c(min(weather$date),max(weather$date)),
      type="n", xaxt = "n", xlab="Date",ylab="Rainfall (mm)", las = 1)
 title (font.main = 1,"Rain", line = -1.5, adj = 0.03)
 axis(side = 1, at = seq(min(weather$date),max(weather$date), by =1), labels = NA)
-axis(side = 1, at = seq(min(weather$date),max(weather$date), by =4), cex = 0.5,labels = c("Aug 18","Aug 22", "Aug 26", "Aug 30", "Sep 3", "Sep 7","Sep 11"))
-       #c("Aug 18","","","","","","","Aug 25","","","","","","","Sep 2", "","","","","","","Sep 9","","", ""))
+axis(side = 1, at = seq(min(weather$date),max(weather$date), by =4), cex = 0.5,labels = c("Aug 18","Aug 22",
+      "Aug 26", "Aug 30", "Sep 3", "Sep 7","Sep 11"))
 lines(x=xcoords,y=weather$mm_rain,col="black")
 
