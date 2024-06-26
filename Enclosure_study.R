@@ -183,7 +183,9 @@ xyplot(quant ~ int_sample | factor(snake_id), type=c("p","r"), pch = 19,
 xyplot(quant ~ int_exposure | factor(snake_id), type=c("p","r"), pch = 19,
        xlab = "Exposure time(min)", col = 1, ylab = "Quant", data = data3)
 
-
+#correcting sample collection time labels for continuity
+data3$sample_time[(which(data3$sample_time[] == "6 DAY"))] <- "7 DAY"
+data3$sample_time[(which(data3$sample_time[] == "9 DAY"))] <- "10 DAY"
 
 ###quant distrubtion without outliers - FIGURE 3
 plot1 <- ggplot(data3, aes(x=factor(exposure_time, level = c("100 seconds", "15 minutes",
@@ -191,7 +193,7 @@ plot1 <- ggplot(data3, aes(x=factor(exposure_time, level = c("100 seconds", "15 
           theme_classic() + theme(panel.border = element_rect(colour = "black", fill=NA, linewidth=0.5), axis.line = element_blank(),
           axis.text = element_text(colour = "black")) + geom_jitter(size = 0.9, position = position_jitter(seed = 1, width = 0.2))
                                                                                                                                                                                                                             
-plot2 <- ggplot(data3, aes(x=factor(sample2, level = c("1 HR", "4 HR", "24 HR", 
+plot2 <- ggplot(data3, aes(x=factor(sample_time, level = c("1 HR", "4 HR", "24 HR", 
           "48 HR", "72 HR", "7 DAY", "10 DAY")), y=quant)) + geom_violin(fill = "darkgray") + xlab("Soil collection"
           )+ theme_classic() + theme( axis.text.y=element_blank(), axis.ticks.y=element_blank(), 
           axis.title.y=element_blank(), axis.text = element_text(colour = "black"), axis.line = element_blank(),
