@@ -1,5 +1,5 @@
-# Extended persistence of reptile DNA in soil: a case study using the eastern indigo snake
-Datasets and scripts used for Samuels et al. (2024).
+# Persistence of reptile DNA in a terrestrial substrate: a case study using the eastern indigo snake
+Datasets and scripts used for Samuels, L. R. N., Chandler, H. C., Hoffman, M., Kronenberger, J. A., Elmore, M., Aldredge, R., Stegenga, B. S., Bogan, J. E., Davis, M. A., Hertz, S., Schwartz, M. K., & Wilcox, T. (2025). Persistence of Reptile DNA in a Terrestrial Substrate: A Case Study Using the Eastern Indigo Snake. Environmental DNA, 7(1), e70053. https://doi.org/10.1002/edn3.70053
 
 # File guide
 
