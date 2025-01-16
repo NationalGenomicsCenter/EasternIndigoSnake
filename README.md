@@ -12,4 +12,4 @@ Datasets and scripts used for Samuels, L. R. N., Chandler, H. C., Hoffman, M., K
 **Enclosure_weather.csv** - Dataset containing all weather data compiled from HOBO lux and temperature loggers, and from the Leesburg International Airport NOAA station, required for Enclosure_study.R script.
 
 # Contact information
-Please reach out to us at the [National Genomic Center for Wildlife and Fish Conservation](https://www.fs.usda.gov/research/rmrs/projects/ngc) with any questions or comments. Data was analyzed by Leah Samuels at leah.samuels@usda.gov and Taylor Wilcox at taylor.wilcox@usda.gov.
+Please reach out to us at the [National Genomic Center for Wildlife and Fish Conservation](https://www.fs.usda.gov/research/rmrs/projects/ngc) with any questions or comments. Data was analyzed by Leah Samuels at leah.samuels@usda.gov/leahrnsamuels@gmail.com and Taylor Wilcox at taylor.wilcox@usda.gov.
