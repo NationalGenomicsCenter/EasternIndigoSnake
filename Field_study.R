@@ -1,10 +1,11 @@
-setwd("/Users/leahsamuels/Box/EIS/Field-manuscript/Code")
-
 ################################################################################
 ###
 ### Leah Samuels 2/19/2025
 ### Script for Comparison of three monitoring methods in situ for threatened
 ### species detection
+###
+### Field Study
+###
 ################################################################################
 
 library('stringr') ##analysis
