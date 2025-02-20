@@ -19,5 +19,9 @@ Datasets and scripts used for ...
 
 # File guide
 
+**qPCR_mastersheet_field.csv** - Dataset containing qPCR data for all 306 eDNA soil samples, required for Field_study.R script.
+
+**Field_study.R** - Script used to restructure data.
+
 # Contact information
 Please reach out to us at the [National Genomic Center for Wildlife and Fish Conservation](https://www.fs.usda.gov/research/rmrs/projects/ngc) with any questions or comments. Data was analyzed by Leah Samuels at leah.samuels@usda.gov/leahrnsamuels@gmail.com and Taylor Wilcox at taylor.wilcox@usda.gov.
