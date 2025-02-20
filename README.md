@@ -23,7 +23,7 @@ Datasets and scripts used for ...
 
 **Field_study.R** - Script used to restructure data. Required for Positives.R.
 
-**"Field_weather.csv** - Weather data from FAWN tower and taken by field technicians. Required for Positives.R.
+**Field_weather.csv** - Weather data from FAWN tower and taken by field technicians. Required for Positives.R.
 
 **camera_positives.csv** - eDNA samples confirmed positive by cameras. Required for Positives.R.
 
