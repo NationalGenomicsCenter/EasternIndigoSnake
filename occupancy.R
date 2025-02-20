@@ -12,7 +12,6 @@
 require("RPresence")
 require('ggplot2')
 require('dplyr')
-require('emojifont') ##easiest way to include theta in exported pdf graph
 require('patchwork')
 
 data <- read.csv("presence_input.csv")
