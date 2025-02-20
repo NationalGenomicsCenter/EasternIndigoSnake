@@ -27,7 +27,7 @@ Datasets and scripts used for ...
 
 **camera_positives.csv** - eDNA samples confirmed positive by cameras. Required for Positives.R.
 
-**Positive Sample Details_TOS.csv** - Details about location samples were taken at (burrows, fences, or ground).
+**Positive Sample Details_TOS.csv** - Details about location samples were taken at (burrows, fences, or ground). Required for Positives.R.
 
 **Positives.R** - Analysis of all known-positives, includes code for Figure 2 and Figure 3. Enclosure_study.R and Field_study.R are required for this script.
 
