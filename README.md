@@ -21,7 +21,24 @@ Datasets and scripts used for ...
 
 **qPCR_mastersheet_field.csv** - Dataset containing qPCR data for all 306 eDNA soil samples, required for Field_study.R script.
 
-**Field_study.R** - Script used to restructure data.
+**Field_study.R** - Script used to restructure data. Required for Positives.R.
+
+**Positives.R** - Analysis of all known-positives, includes code for Figure 2 and Figure 3. Enclosure_study.R and Field_study.R are required for this script.
+
+**EIS Survey Cost Estimates.xlsx** - Dataset with overview of all cost estimates, used for analysis in occupancy.R.
+
+**eDNA_data**- Dataset of all eDNA detections from all surveys for all sites.
+
+**VES_data** - Dataset of all visual encounter survey detections from all surveys for all sites.
+
+**Camera_data** - Dataset of all camera detections from all surveys for all sites.
+
+**presence_input** - Dataset used for R Presence occupancy modeling. Required for occupancy.R.
+
+**rate_of_detection** - Dataset used for rate of detection calculations. Required for occupancy.R
+
+**occupancy.R** - Script used for occupancy modeling and analysis. Includes code for Figure 4-7. 
+
 
 # Contact information
 Please reach out to us at the [National Genomic Center for Wildlife and Fish Conservation](https://www.fs.usda.gov/research/rmrs/projects/ngc) with any questions or comments. Data was analyzed by Leah Samuels at leah.samuels@usda.gov/leahrnsamuels@gmail.com and Taylor Wilcox at taylor.wilcox@usda.gov.
